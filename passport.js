@@ -2,11 +2,14 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
 module.exports = function (app) {
+  console.log("passport.jsの中");
   passport.serializeUser(function (user, done) {
+    console.log("serialの中");
     done(null, user.id);
   });
 
   passport.deserializeUser(async function (id, done) {
+    console.log("deserialの中");
     // await User.findById(id, function (err, user) {
     //   done(err, user);
     // });
